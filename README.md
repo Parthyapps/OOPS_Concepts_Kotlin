@@ -85,3 +85,42 @@ class Student {
   }
 }
 ```
+# 4.Polymorphism
+# Polymorphism means "many forms." It allows you to perform a single action in different ways depending on the object type. 
+There are two main types of polymorphism:
+- Compile-time Polymorphism (Method Overloading): Multiple methods with the same name but different parameters.
+```kotlin
+   class Calculator {
+    fun add(a: Int, b: Int): Int {
+        return a + b
+    }
+
+    fun add(a: Int, b: Int, c: Int): Int {
+        return a + b + c
+    }
+}
+
+fun main() {
+    val calc = Calculator()
+    println(calc.add(2, 3))      // Calls first function
+    println(calc.add(1, 2, 3))   // Calls second function
+}
+```
+- Runtime Polymorphism (Method Overriding): A subclass provides a specific implementation of a method that is already defined in its superclass.
+```kotlin
+  open class Animal {
+    open fun sound() {
+        println("This animal makes a sound.")
+    }
+}
+  class Dog : Animal() {
+      override fun sound() {
+          println("The dog barks.")
+      }
+  }
+  
+  fun main() {
+      val animal: Animal = Dog()
+      animal.sound() // Calls overridden method in Dog
+  }
+```
