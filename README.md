@@ -1,9 +1,10 @@
 # OOPS_Concepts_Kotlin
 # OOPS Concepts 
+![image](https://github.com/user-attachments/assets/43fffdb8-5f3e-48cb-82ee-96d9f55f196c)
+
 # 1. Class and Object and Encapsulation
  - A class is a blueprint or template for creating objects. 
  - An object is an instance of a class, meaning it is a real-world entity created using the class.
-
 ```kotlin
    fun main(){
       val myObj = Car("Honda", 20) // Creating an object with initial values using constructor
@@ -28,6 +29,7 @@
 ```
 
 # 2.Inheritance
+# Reusing properties and methods from a superclass.
 # Inheritance allows one class to acquire properties and behavior from another class.
 
   ```kotlin
@@ -123,4 +125,51 @@ fun main() {
       val animal: Animal = Dog()
       animal.sound() // Calls overridden method in Dog
   }
+```
+# 5.Abstraction
+# Abstraction hides implementation details and exposes only the necessary functionality. It is implemented using abstract classes or interfaces.
+
+```kotlin
+abstract class Vehicle {
+    abstract fun start() // Abstract method
+
+    fun stop() {
+        println("Vehicle stopped.")
+    }
+}
+
+class Car : Vehicle() {
+    override fun start() {
+        println("Car starts with a key.")
+    }
+}
+
+fun main() {
+    val car: Vehicle = Car()
+    car.start() // Implementation from Car
+    car.stop()  // Implementation from Vehicle
+}
+```
+
+# Interface example
+# Interfaces allow multiple inheritance and only declare methods, while abstract classes can have both abstract and concrete methods.
+```kotlin
+ interface Vehicle {
+     fun start()
+     fun stop() {
+         println("Vehicle stopped.") // Default implementation
+     }
+ }
+ 
+ class Bike : Vehicle {
+     override fun start() {
+         println("Bike starts with a button.")
+     }
+ }
+ 
+ fun main() {
+     val bike: Vehicle = Bike()
+     bike.start() // Implementation from Bike
+     bike.stop()  // Default implementation from Vehicle
+ }
 ```
