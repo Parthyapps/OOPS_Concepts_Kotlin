@@ -8,14 +8,17 @@
 - ✔️ Abstraction → NewsDataSource hides API implementation details.shows only neccessary action.
 
 # 1. Class and Object and Encapsulation
- - A class is a blueprint or template for creating objects. 
- - An object is an instance of a class, meaning it is a real-world entity created using the class.
+ - We have created one class name Student the class is a blueprint for creating objects. 
+ - Inside the class we create fun totalMark() method is an object is instance of a class, meaning it is a real-world entity created using the class.
 ```kotlin
+// When we fetch data, each article is stored as an object of this class.
+   data class NewsArticle( val title: String, val description: String,val url: String)
+
    fun main(){
       val myObj = Car("Honda", 20) // Creating an object with initial values using constructor
       myObj.accessCar()
       println(student.totalMark())// Calling the fun method
-  }
+   }
   // Student is a class with properties (name) and a function (mark).
   class Student {
       private var name: String = "" //variable properties
@@ -36,7 +39,8 @@
 # 2.Inheritance
 # Reusing properties and methods from a superclass.
 # Inheritance allows one class to acquire properties and behavior from another class.
-
+Eg: Instead of writing common logic in multiple ViewModels, we create a BaseViewModel.
+ - NewViewModel inherits BaseViewModel, so it doesn’t need to redefine errorMessage.
   ```kotlin
   fun main() {
       val dog = Dog()
@@ -63,6 +67,8 @@
 # Encapsulation
  - Encapsulation means restricting direct access to data and
  - providing controlled access through getters and setters.
+ - Eg:Encapsulation ensures data is not directly accessed from the UI. Instead, the Repository class handles all API logic.
+ - The Repository class hides API details. The ViewModel only calls getNews(), without knowing API implementation.
 ```kotlin
   fun main() {
     val student = Student() // Creating an object of student
@@ -96,6 +102,7 @@ class Student {
 # Polymorphism means "many forms." It allows you to perform a single action in different ways depending on the object type. 
 There are two main types of polymorphism:
 - Compile-time Polymorphism (Method Overloading): Multiple methods with the same name but different parameters.
+- Using Retrofit Interface for Multiple APIs - Instead of creating different APIService functions manually, we use Retrofit interface Service class (a form of polymorphism).
 ```kotlin
    class Calculator {
     fun add(a: Int, b: Int): Int {
@@ -133,8 +140,14 @@ fun main() {
 ```
 # 5.Abstraction
 # Abstraction hides implementation details and exposes only the necessary functionality. It is implemented using abstract classes or interfaces.
+- Instead of calling Retrofit directly, we abstract it using an interface.
 
 ```kotlin
+
+ interface NewsDataSource {
+    suspend fun getNews(): List<NewsArticle>
+}
+
 abstract class Vehicle {
     abstract fun start() // Abstract method
 
