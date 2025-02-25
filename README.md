@@ -1,5 +1,7 @@
 # OOPS_Concepts_Kotlin
 # OOPS Concepts 
+- OOP is an mostly used programming paradigm which provides code reusability and flexibility to write easily maintainable and scalable code while develop the app.
+
 ![image](https://github.com/user-attachments/assets/43fffdb8-5f3e-48cb-82ee-96d9f55f196c)
 
 - ✔️ Encapsulation → Repository class hides API logic. Encapsulation ensures data is not directly accessed. Instead, the Repository class handles all API logic.
@@ -8,7 +10,7 @@
 - ✔️ Abstraction → NewsDataSource hides API implementation details.shows only neccessary action.
 
 # 1. Class and Object and Encapsulation
- - We have created one class name Student the class is a blueprint for creating objects. 
+ - If We created one class that class name is called as a Student. The class is a blueprint for creating objects. 
  - Inside the class we create fun totalMark() method is an object is instance of a class, meaning it is a real-world entity created using the class.
 ```kotlin
 // When we fetch data, each article is stored as an object of this class.
