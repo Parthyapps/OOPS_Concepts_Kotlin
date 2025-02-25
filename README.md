@@ -44,27 +44,25 @@
 Eg: Instead of writing common logic in multiple ViewModels, we create a BaseViewModel.
  - NewViewModel inherits BaseViewModel, so it doesn’t need to redefine errorMessage.
   ```kotlin
-  fun main() {
-      val dog = Dog()
-      dog.eat()  // Inherited from Animal
-      dog.bark() // Defined in Dog
-  }
 
-      // Parent class
-      open class Animal {
-          fun eat() {
-              println("The animal can drink water")
-          }
-      }
-      
-      // Child class
-      class Dog : Animal() {
-      
-          fun bark() {
-              println("dog barks")
-          }
-      }
-```
+open class BaseViewModel : ViewModel() {
+    val errorMessage = MutableLiveData<String>()
+}
+class NewViewModel(private val repository: AuthRepository) : BaseViewModel() {
+    val userLiveData = MutableLiveData<User?>()
+    fun login(email: String, password: String) {
+        viewModelScope.launch {
+            try {
+                val user = repository.login(email, password)
+                userLiveData.postValue(user)
+            } catch (e: Exception) {
+                errorMessage.postValue("Login failed")
+            }
+        }
+    }
+}
+
+ ```
 
 # Encapsulation
  - Encapsulation means restricting direct access to data and
