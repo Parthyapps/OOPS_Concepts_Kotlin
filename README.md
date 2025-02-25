@@ -43,6 +43,12 @@
 # Inheritance allows one class to acquire properties and behavior from another class.
 Eg: Instead of writing common logic in multiple ViewModels, we create a BaseViewModel.
  - NewViewModel inherits BaseViewModel, so it doesn’t need to redefine errorMessage.
+ - Single inheritance -  A child class inherits from a single parent class. BaseActivity → MainActivity
+ - Multiple inheritance - Not directly supported in Kotlin (avoided using interfaces). ClickListener + Logger in ButtonHandler
+ - Multilevel inheritance -  A class inherits from another class, which itself is a subclass. CoreApplication → MyApplication → NewsApplication
+ - Hierarchical inheritance -  Multiple classes inherit from a single parent class. BaseViewModel → HomeViewModel & ProfileViewModel
+ - Hybrid inheritance - Not supported directly (achieved using interfaces). NewsApplication (extends MyApplication + implements Logger)
+ - 
   ```kotlin
 
 open class BaseViewModel : ViewModel() {
@@ -121,22 +127,16 @@ fun main() {
 }
 ```
 - Runtime Polymorphism (Method Overriding): A subclass provides a specific implementation of a method that is already defined in its superclass.
+- Every Android Activity inherits from AppCompatActivity and overrides its lifecycle methods like onCreate().
 ```kotlin
-  open class Animal {
-    open fun sound() {
-        println("This animal makes a sound.")
+  class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        Log.d("Lifecycle", "MainActivity Created")
     }
 }
-  class Dog : Animal() {
-      override fun sound() {
-          println("The dog barks.")
-      }
-  }
-  
-  fun main() {
-      val animal: Animal = Dog()
-      animal.sound() // Calls overridden method in Dog
-  }
+
 ```
 # 5.Abstraction
 # Abstraction hides implementation details and exposes only the necessary functionality. It is implemented using abstract classes or interfaces.
