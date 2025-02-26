@@ -73,6 +73,7 @@ class NewViewModel(private val repository: AuthRepository) : BaseViewModel() {
 # Encapsulation
  - Encapsulation means restricting direct access to data and
  - providing controlled access through getters and setters.
+ - It also restricts direct access to some of the object's components, which is achieved using access modifiers like private, public, and protected
  - Eg:Encapsulation ensures data is not directly accessed from the UI. Instead, the Repository class handles all API logic.
  - The Repository class hides API details. The ViewModel only calls getNews(), without knowing API implementation.
 ```kotlin
