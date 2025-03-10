@@ -13,6 +13,7 @@
  - If We created one class that class name is called as a Student. The class is a blueprint for creating objects. 
  - Inside the class we create fun totalMark() method is an object is instance of a class, meaning it is a real-world entity created using the class.
 ```kotlin
+
 // When we fetch data, each article is stored as an object of this class.
    data class NewsArticle( val title: String, val description: String,val url: String)
 
