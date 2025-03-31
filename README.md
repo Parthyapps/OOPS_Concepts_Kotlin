@@ -4,6 +4,7 @@
 
 ![image](https://github.com/user-attachments/assets/43fffdb8-5f3e-48cb-82ee-96d9f55f196c)
 
+- ✔️ **Class** is blueprint for creating object
 - ✔️ Encapsulation → Repository class hides API logic. Encapsulation ensures data is not directly accessed. Instead, the Repository class handles all API logic.
 - ✔️ Inheritance → ViewModel inherits common logic from BaseViewModel.
 - ✔️ Polymorphism → Retrofit interface allows multiple API functions.
